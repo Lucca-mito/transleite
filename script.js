@@ -41,6 +41,7 @@ function transleite(ipa) {
 		'θ': 'th', // FIXME: italics?
 		'r': 'Я',
 		'x': 'rr',
+		'tʃ': 'tch',
 		'ʃ': 'x'
 	};
 
