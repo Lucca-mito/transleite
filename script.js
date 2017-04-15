@@ -1,5 +1,6 @@
 function request() {
 	var word = $('input').val();
+	showLoader();
 
 	$.ajax(
 		'https://wordsapiv1.p.mashape.com/words/'+word,
@@ -14,10 +15,13 @@ function request() {
 	);
 }
 
+function showLoader() {
+	$('#result').html('<div class=loader></div>');
+}
+
 function onSuccess(data) {
-	//alert(transleite(data.pronunciation.all));
 	$('#result').html(
-		'<div class="alert alert-success alert-dismissable fade in">\
+		'<div class="alert alert-success alert-dismissable fade in animate-bottom">\
 			<a href="#" class="close" data-dismiss="alert">&times;</a>'+
 			transleite(data.pronunciation.all) +'\
 		</div>'
@@ -27,7 +31,7 @@ function onSuccess(data) {
 function onError(jqXHR, textStatus) {
 	var word = $('input').val();
 	$('#result').html(
-		'<div class="alert alert-danger alert-dismissable fade in">\
+		'<div class="alert alert-danger alert-dismissable fade in animate-bottom">\
 			<a href="#" class="close" data-dismiss="alert">&times;</a>\
 			<strong>Erro:</strong> A palavra "' + word + '"\
 			não foi encontrada.\
