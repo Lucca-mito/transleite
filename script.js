@@ -46,7 +46,7 @@ function request() {
 				lang: 'en-en'
 			},
 			success: onSuccessUK,
-			error: onError
+			error: onError // Doesn't actually do anything; see onSuccessUK()
 		} // </settings>
 	);
 }
@@ -62,6 +62,7 @@ function onSuccessUS(data) {
 }
 
 function onSuccessUK(data) {
+	if (!data.def[0]) onError(); // Yandex is stupid and can't return a fucking error
 	data = data.def[0].ts;
 	$('#result').html(
 		'<div class="alert alert-success alert-dismissable fade in animate-bottom">\
