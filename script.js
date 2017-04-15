@@ -8,13 +8,12 @@ function request() {
 				"X-Mashape-Key": "y4yiFb5hiimshOtLWnLenJh6uNunp1M9OJpjsnEp17XCjIu8Kl",
 				"Accept": "application/json"
 			},
-			complete: onComplete
+			success: onSuccess
 		} // </settings>
 	);
 }
 
-function onComplete(data) {
-	data = JSON.parse(data.responseText);
+function onSuccess(data) {
 	alert(transleite(data.pronunciation.all));
 }
 
