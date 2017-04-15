@@ -19,7 +19,12 @@ function onSuccess(data) {
 }
 
 function onError(jqXHR, textStatus) {
-		alert("Algo deu errado");
+	$('body').append(
+		'<div class="alert alert-danger alert-dismissable fade in">\
+			<a href="#" class="close" data-dismiss="alert">&times;</a>\
+			<strong>Erro:</strong> A palavra não foi encontrada.\
+		</div>'
+	);
 }
 
 function transleite(ipa) {
