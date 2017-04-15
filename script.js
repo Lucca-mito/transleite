@@ -15,14 +15,22 @@ function request() {
 }
 
 function onSuccess(data) {
-	alert(transleite(data.pronunciation.all));
+	//alert(transleite(data.pronunciation.all));
+	$('#result').html(
+		'<div class="alert alert-success alert-dismissable fade in">\
+			<a href="#" class="close" data-dismiss="alert">&times;</a>'+
+			transleite(data.pronunciation.all) +'\
+		</div>'
+	);
 }
 
 function onError(jqXHR, textStatus) {
-	$('body').append(
+	var word = $('input').val();
+	$('#result').html(
 		'<div class="alert alert-danger alert-dismissable fade in">\
 			<a href="#" class="close" data-dismiss="alert">&times;</a>\
-			<strong>Erro:</strong> A palavra não foi encontrada.\
+			<strong>Erro:</strong> A palavra "' + word + '"\
+			não foi encontrada.\
 		</div>'
 	);
 }
