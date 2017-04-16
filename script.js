@@ -56,7 +56,7 @@ function onSuccessUS(data) {
 	$('#result').html(
 		'<div class="alert alert-success alert-dismissable fade in animate-bottom">\
 			<a href="#" class="close" data-dismiss="alert">&times;</a>'+
-			transleite(data) +'\
+			data +' → '+ transleite(data) +'\
 		</div>'
 	);
 }
@@ -67,7 +67,7 @@ function onSuccessUK(data) {
 	$('#result').html(
 		'<div class="alert alert-success alert-dismissable fade in animate-bottom">\
 			<a href="#" class="close" data-dismiss="alert">&times;</a>'+
-			transleite(data) +'\
+			data +' → '+ transleite(data) +'\
 		</div>'
 	);
 }
