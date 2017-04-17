@@ -65,14 +65,15 @@ function showResult(data, isSuccess) {
 }
 
 function onSuccessUS(data) {
-	data = data.pronunciation.all || data.pronunciation; // WordsAPI is stupid and inconsistent
-	showResult(data, true);
+	data = data.pronunciation.all || data.pronunciation;
+	if (data) showResult(data, true);
+	else onError(); // WordsAPI has to be the least consistent API in history
 }
 
 function onSuccessUK(data) {
-	if (!data.def[0]) return onError(); // Yandex is stupid and can't return a fucking error
-	data = data.def[0].ts;
-	showResult(data, true);
+	data = data.def[0];
+	if (data) showResult(data.ts, true);
+	else onError(); // Yandex ALWAYS returns a 200, because russians can't HTTP
 }
 
 function onError() {

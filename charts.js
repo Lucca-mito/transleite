@@ -29,5 +29,7 @@ var chartUK = $.extend({}, chartUS); // Copy
 $.extend(chartUK, {
 	'ˈ': "-",
 	'ː': '',
-	'ə': 'a'
+	'ə': 'a',
+	'ɒ': 'ó',
+	'ʤ': 'dj'
 });
