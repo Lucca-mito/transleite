@@ -54,7 +54,7 @@ function request() {
 function showResult(data, isSuccess) {
 	var text;
 	if (isSuccess) text = data +' → '+ transleite(data);
-	else text = '<strong>Erro:</strong> A palavra "' +data+ '"não foi encontrada.'
+	else text = '<strong>Erro:</strong> A palavra "' +data+ '" não foi encontrada.'
 
 	var bsAlert = $('<div/>') // Bootstrap alert
 		.addClass('alert alert-dismissable fade in animate-bottom')

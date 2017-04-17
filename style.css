@@ -1,6 +1,6 @@
-/*.container {
-	border: 1px solid;
-}*/
+.container {
+	width: 350px;
+}
 
 #accent {
   font-size: 2em;

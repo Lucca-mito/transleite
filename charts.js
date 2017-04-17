@@ -25,7 +25,15 @@ var chartUS = {
 	'ʃ': 'x'
 };
 
-var chartUK = {
+/*var chartUK = {
 	'_': ' ',
-	"ˈ": '-'
-};
+	"ˈ": '-',
+	'ɑː': 'ó',
+	'ɔ': 'ó',
+	'æ': 'é',
+	'ɪ': 'i'
+};*/
+var chartUK = $.extend({
+	'ˈ': "-",
+	'ː': ''
+}, chartUS);
