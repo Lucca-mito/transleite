@@ -51,36 +51,32 @@ function request() {
 	);
 }
 
+function showResult(data, isSuccess) {
+	var text;
+	if (isSuccess) text = data +' → '+ transleite(data);
+	else text = '<strong>Erro:</strong> A palavra "' +data+ '"não foi encontrada.'
+
+	var bsAlert = $('<div/>') // Bootstrap alert
+		.addClass('alert alert-dismissable fade in animate-bottom')
+		.addClass(isSuccess ? 'alert-success' : 'alert-danger')
+		.html('<a href="#" class="close" data-dismiss="alert">&times;</a>'+text)
+
+	$('#result').html('').append(bsAlert);;
+}
+
 function onSuccessUS(data) {
 	data = data.pronunciation.all || data.pronunciation; // WordsAPI is stupid and inconsistent
-	$('#result').html(
-		'<div class="alert alert-success alert-dismissable fade in animate-bottom">\
-			<a href="#" class="close" data-dismiss="alert">&times;</a>'+
-			data +' → '+ transleite(data) +'\
-		</div>'
-	);
+	showResult(data, true);
 }
 
 function onSuccessUK(data) {
-	if (!data.def[0]) onError(); // Yandex is stupid and can't return a fucking error
+	if (!data.def[0]) return onError(); // Yandex is stupid and can't return a fucking error
 	data = data.def[0].ts;
-	$('#result').html(
-		'<div class="alert alert-success alert-dismissable fade in animate-bottom">\
-			<a href="#" class="close" data-dismiss="alert">&times;</a>'+
-			data +' → '+ transleite(data) +'\
-		</div>'
-	);
+	showResult(data, true);
 }
 
 function onError() {
-	var word = $('input').val();
-	$('#result').html(
-		'<div class="alert alert-danger alert-dismissable fade in animate-bottom">\
-			<a href="#" class="close" data-dismiss="alert">&times;</a>\
-			<strong>Erro:</strong> A palavra "' + word + '"\
-			não foi encontrada.\
-		</div>'
-	);
+	showResult($('input').val(), false);
 }
 
 $(document).ready(function() {
