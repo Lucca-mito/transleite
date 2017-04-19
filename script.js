@@ -51,17 +51,30 @@ function request() {
 	);
 }
 
+function explainR() {
+	var bsAlert = $('<div/>')
+		.addClass('alert alert-info fade in animate-bottom')
+		.html('Em inglês, o "r" não é forte; use o sotaque da região Nordeste');
+
+	$('<div class="col-xs-7"/>').append(bsAlert).appendTo('#result');
+}
+
 function showResult(data, isSuccess) {
-	var text;
-	if (isSuccess) text = data +' → '+ transleite(data);
+	var text, hasR = isSuccess && data.indexOf('r') > -1;
+
+	if (isSuccess) text = transleite(data);
 	else text = '<strong>Erro:</strong> A palavra "' +data+ '" não foi encontrada.'
 
-	var bsAlert = $('<div/>') // Bootstrap alert
-		.addClass('alert alert-dismissable fade in animate-bottom')
-		.addClass(isSuccess ? 'alert-success' : 'alert-danger')
-		.html('<a href="#" class="close" data-dismiss="alert">&times;</a>'+text)
+	var bsCol = $('<div/>').addClass('col-xs-' + (hasR ? 5 : 12));
 
-	$('#result').html('').append(bsAlert);;
+	$('<div/>') // New Bootstrap alert
+		.addClass('alert fade in animate-bottom')
+		.addClass(isSuccess ? 'alert-success' : 'alert-danger')
+		.html(text)
+		.appendTo(bsCol);
+
+	$('#result').html('').append(bsCol);
+	if (hasR) explainR();
 }
 
 function onSuccessUS(data) {
@@ -73,7 +86,7 @@ function onSuccessUS(data) {
 function onSuccessUK(data) {
 	data = data.def[0];
 	if (data) showResult(data.ts, true);
-	else onError(); // Yandex ALWAYS returns a 200, because russians can't HTTP
+	else onError(); // Yandex ALWAYS returns a 200, because russians don't know how to HTTP
 }
 
 function onError() {
