@@ -54,7 +54,7 @@ function request() {
 function explainR() {
 	var bsAlert = $('<div/>')
 		.addClass('alert alert-info fade in animate-bottom')
-		.html('Em inglês, o "r" não é forte; use o sotaque da região Nordeste');
+		.html('Em inglês, o "r" não é forte; use o sotaque do Nordeste');
 
 	$('<div class="col-xs-7"/>').append(bsAlert).appendTo('#result');
 }
