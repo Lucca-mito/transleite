@@ -93,6 +93,10 @@ function onError() {
 	showResult($('input').val(), false);
 }
 
+$(document).keypress(function(e) {
+    if (e.which == 13) request();
+});
+
 $(document).ready(function() {
 	$('#accent').click(toggleAccent);
 	$('button').click(request);
