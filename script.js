@@ -1,9 +1,7 @@
+const MURICAH = () => $('#accent').text() == '🇺🇸';
+
 function showLoader() {
 	$('#result').html('<div class=loader></div>');
-}
-
-function MURICAH() {
-	return $('#accent').text() == '🇺🇸';
 }
 
 function toggleAccent() {
@@ -24,7 +22,9 @@ function transleite(ipa) {
 
 function request() {
 	var word = $('input').val();
+
 	showLoader();
+	console.log("Request"); // Just in case shit hits the fan
 
 	if (MURICAH()) $.ajax( // US accent with WordsAPI
 		'https://wordsapiv1.p.mashape.com/words/'+word,
