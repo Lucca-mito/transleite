@@ -54,7 +54,8 @@ function request() {
 function explainR() {
 	var bsAlert = $('<div/>')
 		.addClass('alert alert-info fade in animate-bottom')
-		.html('Em inglês, o "r" não é forte: Use o sotaque do Nordeste');
+		//.html('Em inglês, o "r" não é forte: Use o sotaque do Nordeste');
+		.html('<b>Pronúncia do R: </b>Em inglês, o "r" não é forte');
 
 	$('<div class="col-xs-7"/>').append(bsAlert).appendTo('#result');
 }
@@ -63,7 +64,7 @@ function showResult(data, isSuccess) {
 	var text, hasR = isSuccess && data.indexOf('r') > -1;
 
 	if (isSuccess) text = transleite(data);
-	else text = '<strong>Erro:</strong> A palavra "' +data+ '" não foi encontrada.'
+	else text = '<b>Erro:</b> A palavra "' +data+ '" não foi encontrada.'
 
 	var bsCol = $('<div/>').addClass('col-xs-' + (hasR ? 5 : 12));
 

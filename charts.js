@@ -14,7 +14,7 @@ var chartUS = {
 	'ju': 'iú',
 	'j': 'i',
 	'ʌ': 'â',
-	'ə': 'â',
+	'ə': 'a',
 	'ð': 'd',
 	'ʒ': 'j',
 	'hw': 'w',
@@ -25,12 +25,10 @@ var chartUS = {
 	'ʃ': 'x'
 };
 
-var chartUK = $.extend({}, chartUS); // Copy
-$.extend(chartUK, {
+var chartUK = $.extend({
 	'ˈ': "-",
 	'ː': '',
-	'ə': 'a',
 	'ɒ': 'ó',
 	'ʤ': 'dj',
 	'ʧ': 'tch'
-});
+}, chartUS);
