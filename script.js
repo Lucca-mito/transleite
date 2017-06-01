@@ -78,20 +78,21 @@ function showResult(data, isSuccess) {
 	if (hasR) explainR();
 }
 
+function onError() {
+	showResult($('input').val(), false);
+}
+
 function onSuccessUS(data) {
 	data = data.pronunciation.all || data.pronunciation;
-	if (data) showResult(data, true);
-	else onError(); // WordsAPI has to be the least consistent API in history
+	// Sometimes, WordsAPI returns a "success" when it shouldn't
+	try { showResult(data, true) }
+	catch (e) { onError() }
 }
 
 function onSuccessUK(data) {
-	data = data.def[0];
-	if (data) showResult(data.ts, true);
-	else onError(); // Yandex ALWAYS returns a 200, because russians don't know how to HTTP
-}
-
-function onError() {
-	showResult($('input').val(), false);
+	// Yandex ALWAYS returns "success", because russians don't understand HTTP i guess
+	try { showResult(data.def[0].ts, true) }
+	catch (e) { onError() }
 }
 
 $(document).keypress(function(e) {
