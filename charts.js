@@ -22,6 +22,7 @@ var chartUS = {
 	'θ': 'th', // FIXME: italics?
 	'x': 'rr',
 	'tʃ': 'tch',
+	'ʧ': 'tch',
 	'ʃ': 'x'
 };
 
@@ -29,6 +30,5 @@ var chartUK = $.extend({
 	'ˈ': "-",
 	'ː': '',
 	'ɒ': 'ó',
-	'ʤ': 'dj',
-	'ʧ': 'tch'
+	'ʤ': 'dj'
 }, chartUS);
