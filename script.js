@@ -1,16 +1,23 @@
-const MURICAH = () => $('#accent').text() == '🇺🇸';
+function setAccentUS() {
+	$('#us').removeClass('btn-default').addClass('btn-primary');
+	$('#uk').removeClass('btn-primary').addClass('btn-default');
+}
+
+function setAccentUK() {
+	$('#uk').removeClass('btn-default').addClass('btn-primary');
+	$('#us').removeClass('btn-primary').addClass('btn-default');
+}
+
+function MURICAH() {
+	return $('#us').hasClass('btn-primary');
+}
 
 function showLoader() {
 	$('#result').html('<div class=loader></div>');
 }
 
-function toggleAccent() {
-	if (MURICAH()) $('#accent').text('🇬🇧');
-	else $('#accent').text('🇺🇸');
-}
-
 function transleite(ipa) {
-	var chart = MURICAH() ? chartUS : chartUK;
+	var chart = MURICAH()? chartUS : chartUK;
 
 	// Because .replace() only removes the first ocurrence
 	for (var i in chart) ipa = ipa.split(i).join(chart[i]);
@@ -90,16 +97,17 @@ function onSuccessUS(data) {
 }
 
 function onSuccessUK(data) {
-	// Yandex ALWAYS returns "success", because russians don't understand HTTP i guess
+	// Yandex ALWAYS returns "success", because fuck HTTP i guess
 	try { showResult(data.def[0].ts, true) }
 	catch (e) { onError() }
 }
 
-$(document).keypress(function(e) {
+$(document).keypress(e => {
     if (e.which == 13) request();
 });
 
 $(document).ready(function() {
-	$('#accent').click(toggleAccent);
-	$('button').click(request);
+	$('#us').click(setAccentUS);
+	$('#uk').click(setAccentUK);
+	$('#request').click(request);
 })

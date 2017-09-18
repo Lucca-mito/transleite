@@ -13,16 +13,29 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="row" id="input-row">
-				<div class="col-xs-6">
+			<div class="row">
+				<div class="col-xs-1"></div>
+				<div class="col-xs-10">
+					<img id="logo" src="logo-transleite.png"/>
+				</div>
+				<div class="col-xs-1"></div>
+			</div>
+			<div class="row">
+				<div class="col-xs-10">
 					<input class="form-control"/>
+			</div>
+			<div class="col-xs-2">
+				<img src="arrow.png" id="request"/>
+			</div>
+			<div class="row" id="accent-row">
+				<div class="col-xs-4"></div>
+				<div class="col-xs-2">
+					<button class="btn btn-primary" id="us">🇺🇸</button>
 				</div>
-				<div class="col-xs-6">
-					<div class="btn-group">
-						<button class="btn btn-primary">Transleite!</button>
-						<button class="btn btn-default" id="accent">🇺🇸</button>
-					</div>
+				<div class="col-xs-2">
+					<button class="btn btn-default" id="uk">🇬🇧</button>
 				</div>
+				<div class="col-xs-4"></div>
 			</div>
 			<div class="row" id="result"/>
 		</div>
