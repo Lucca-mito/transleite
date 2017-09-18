@@ -1,3 +1,7 @@
+function MURICAH() {
+	return $('#us').hasClass('btn-primary');
+}
+
 function setAccentUS() {
 	$('#us').removeClass('btn-default').addClass('btn-primary');
 	$('#uk').removeClass('btn-primary').addClass('btn-default');
@@ -6,10 +10,6 @@ function setAccentUS() {
 function setAccentUK() {
 	$('#uk').removeClass('btn-default').addClass('btn-primary');
 	$('#us').removeClass('btn-primary').addClass('btn-default');
-}
-
-function MURICAH() {
-	return $('#us').hasClass('btn-primary');
 }
 
 function showLoader() {

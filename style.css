@@ -30,6 +30,7 @@ input {
 }
 
 .loader {
+	margin: 0 auto;
   border: 8px solid #f3f3f3;
   border-radius: 50%;
   border-top: 8px solid #3498db;
