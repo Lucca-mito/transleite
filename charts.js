@@ -19,6 +19,7 @@ var chartUS = {
 	'ʒ': 'j',
 	'hw': 'w',
 	'ŋ': 'ng',
+	'ngg': 'ng',
 	'θ': 'th', // FIXME: italics?
 	'x': 'rr',
 	'tʃ': 'tch',
